@@ -10,15 +10,21 @@ import { Housinglocation } from '../../housinglocation';
   template: ` <p class="home">
   Homes
   </p>
-    <section>
+    <section class="flex">
+      <img src="../assets/icons8-home.svg" alt="logo" class="brandLogo">
       <form>
         <input type="text" placeholder="Filter by city">
         <button class="primary" type="button">Search</button>
       </form>
     </section>
-    <section>
-      <app-housing-location></app-housing-location>
+    <section class="housingLocation">
+      <app-housing-location [housingLocation]='housingLocation' ></app-housing-location>
+      <img [src]="housingLocation.photo">
+      <h2>{{housingLocation.name}}</h2>
+      <h3>{{housingLocation.city}}, {{housingLocation.state}}</h3>
     </section>
+    <div>
+    </div>
     `,
 
 
