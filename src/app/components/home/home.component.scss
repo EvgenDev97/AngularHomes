@@ -1,3 +1,9 @@
+@import "../../varibalbe.scss";
+
+.homePage{
+    margin-right: 10px;
+}
+
 .flex{
     display: flex;
     flex-wrap: wrap;
@@ -21,9 +27,34 @@ input[type="text"] {
     width: 50%;
   }
 
-.housingLocation {
-    img{
-        width: 30%;
-        height: 30%;
+.grid{
+    display: grid;
+    
+    // grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-template-columns: repeat(3, 1fr);
+    
+    @media (max-width:#{$laptop}) {
+        grid-template-columns: repeat(2, 1fr);
+        padding-right: 10px;
     }
+
+    @media (max-width:1023px) {
+        grid-template-columns: repeat(2, 1fr);
+        padding-right: 10px;
+    }
+
+    @media (max-width:#{$tablet}) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width:#{$mobile}) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    // .grid-flex{
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     gap: 10px;
+    //     align-items: center;
+    // }
+  
 }
+
