@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { CommonModule } from '@angular/common';
 import { Housinglocation } from '../../housinglocation';
+import { RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CommonModule, HousingLocationComponent],
-  template: `<div class="homePage">
+  imports: [FormsModule, CommonModule, HousingLocationComponent,RouterOutlet],
+  template: `<router-outlet>
+  <div class="homePage">
   <p class="home">
   Homes
   </p>
@@ -25,11 +28,8 @@ import { Housinglocation } from '../../housinglocation';
       </app-housing-location>
     </section>
   </div>
-
+  </router-outlet>
     `,
-
-
-
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
