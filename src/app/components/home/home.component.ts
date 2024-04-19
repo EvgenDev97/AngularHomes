@@ -10,11 +10,11 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-home',
   standalone: true,
   imports: [FormsModule, CommonModule, HousingLocationComponent,RouterOutlet],
-  template: `<router-outlet>
+  template: `
   <div class="homePage">
-  <p class="home">
-  Homes
-  </p>
+    <p class="home">
+      Homes
+    </p>
     <section class="flex">
       <img src="../assets/icons8-home.svg" alt="logo" class="brandLogo">
       <form>
@@ -28,7 +28,7 @@ import { RouterOutlet } from '@angular/router';
       </app-housing-location>
     </section>
   </div>
-  </router-outlet>
+  
     `,
   styleUrl: './home.component.scss'
 })
