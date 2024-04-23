@@ -12,16 +12,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [FormsModule, CommonModule, HousingLocationComponent,RouterOutlet],
   template: `
   <div class="homePage">
-    <p class="home">
-      Homes
-    </p>
-    <section class="flex">
-      <img src="../assets/icons8-home.svg" alt="logo" class="brandLogo">
-      <form>
-        <input type="text" placeholder="Filter by city">
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
+    
     <section class="grid">
       <app-housing-location *ngFor="let housingLocation of housingLocationList"
       [housingLocation]="housingLocation">
