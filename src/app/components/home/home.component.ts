@@ -12,9 +12,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [FormsModule, CommonModule, HousingLocationComponent,RouterOutlet],
   template: `
   <div class="homePage">
-    
     <section class="grid">
-      <app-housing-location *ngFor="let housingLocation of housingLocationList"
+      <app-housing-location *ngFor="let housingLocation of filteredLocationList "
       [housingLocation]="housingLocation">
       </app-housing-location>
     </section>
@@ -25,10 +24,22 @@ import { RouterOutlet } from '@angular/router';
 })
 export class HomeComponent {
   baseUrl = 'https://angular.io/assets/images/tutorials/faa'
+  filteredLocationList:Housinglocation[]=[]
+
   housingLocationList: Housinglocation[] = []
   housingService:HousingService = inject(HousingService)
-  constructor(){
+  constructor(private service: HousingService){
     this.housingLocationList = this.housingService.getAllHousingLocation()
+    this.filteredLocationList = this.housingLocationList
   }
-   
+  filterResults(text:string){
+    if(!text){
+      this.filteredLocationList = this.housingLocationList
+      return
+    }
+    this.filteredLocationList = this.housingLocationList
+    .filter(housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase()))
+  }
+  
+
 }
